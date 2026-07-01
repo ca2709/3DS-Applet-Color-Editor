@@ -44,7 +44,7 @@ You should now have a decompressed romfs folder titled `ExtractedRomFS`. You can
     - KOR: `luma/titles/000400300000A902/romfs`
     - TWN: `luma/titles/000400300000B102/romfs`
 
-<sup>note: create any directories that don't exist</sup>
+<sup>note: you will need to create any directories that don't exist</sup>
 
 2. Hold SELECT while booting your 3DS to get to the Luma menu
 3. Navigate to `( ) Enable game patching` and press (A) to tick it
