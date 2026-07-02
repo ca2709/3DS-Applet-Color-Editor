@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 import tkinter as tk
 from tkinter import filedialog, messagebox, colorchooser
@@ -40,13 +41,9 @@ APPLET_CONFIG = {
 LAUNCHER_FILENAME = "launcher.lz"
 
 def resource_path(relative_path):
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 class RomfsHexEditor:
     def __init__(self, root):
