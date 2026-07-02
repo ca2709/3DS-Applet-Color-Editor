@@ -4,8 +4,6 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, colorchooser
 
 # --- CONFIGURATION ---
-# Define your targeted files, offsets, and byte lengths (e.g., 3 bytes for RGB)
-# Replace these placeholder offsets with your actual discovered hex offsets!
 APPLET_CONFIG = {
     'Miiverse': {
         'launcher_offset': 0x31DA8, 
@@ -41,16 +39,26 @@ APPLET_CONFIG = {
 
 LAUNCHER_FILENAME = "launcher.lz"
 
+def resource_path(relative_path):
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 class RomfsHexEditor:
     def __init__(self, root):
+        icon_path = resource_path("icon.ico")
         self.root = root
-        self.root.iconbitmap("icon.ico")
         self.root.title("3DS Applet Color Editor")
         self.root.geometry("600x400")
+        self.root.iconbitmap(icon_path)
         
         self.romfs_dir = ""
         self.applet_data = {} # Holds Tkinter StringVar and Canvas elements
-        
+
         self.create_widgets()
 
     def create_widgets(self):
