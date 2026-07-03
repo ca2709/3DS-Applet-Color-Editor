@@ -32,11 +32,13 @@ To start, dump your `HomeMenu.cia` using GodMode9:
 
 You should now have a decompressed romfs folder titled `ExtractedRomFS`. You can now use 3DS-ACE to change the colors of your applets to match whatever theme you have! When you save, backups of all the edited files will be saved under `[FILENAME].LZ.bak`. To restore them, delete the edited file and remove the `.bak` extension.
 
+To recompress the romfs for use on your system, select the "Compress" option in HMRT.
+
 ## How to apply
 
 > this carries no bricking risk and is 100% reversible, but there is another method done by rebuilding the CIA. I will not be providing that here, but if for whatever reason you want to risk a soft brick, you can find it easily online.
 
-1. Copy the contents of your `ExtractedRomFS` folder and paste them in whichever directory matches your reigon:
+1. Copy the contents of your `romfs` folder and paste them in whichever directory matches your reigon:
     - JPN: `luma/titles/0004003000008202/romfs`
     - USA: `luma/titles/0004003000008F02/romfs`
     - EUR: `luma/titles/0004003000009802/romfs`
